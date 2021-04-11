@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+  <title>Blogspot</title>
+
+  {% load static %}
+
+  <style>
+    #navbarNavDropdown {
+      margin-left: 508px;
+    }
+
+    .nav-item {
+      padding-left: 35px;
+    }
+
+    .mg {
+      height: 414px;
+      width: 284px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .mg:hover {
+      margin-top: 19px;
+      margin-left: 19px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .heading {
+      color: rgb(255, 255, 255);
+      font-size: 65px;
+    }
+
+    @media (max-width: 1398px) and (min-width: 1198px) {
+      .heading {
+        font-size: 40px !important;
+      }
+
+    }
+
+    @media (max-width: 1198px) and (min-width: 990px) {
+      #navbarNavDropdown {
+        margin-left: 365px;
+      }
+
+      .nav-item {
+        padding-left: 12px;
+      }
+
+      .blog {
+        display: flex;
+        flex-direction: row;
+
+      }
+
+      .mg {
+        height: 223px;
+        width: 154px;
+      }
+
+      .heading {
+        font-size: 40px !important;
+      }
+
+    }
+
+
+
+    @media (max-width: 990px) and (min-width: 200px) {
+      #navbarNavDropdown {
+        margin-left: 23px;
+      }
+
+      .nav-item {
+        padding-left: 12px;
+      }
+
+      .row {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 0;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin-top: calc(var(--bs-gutter-y) * -1);
+        margin-right: calc(var(--bs-gutter-x)/ -2);
+        margin-left: calc(var(--bs-gutter-x)/ -2);
+      }
+
+      .blog {
+        display: flex;
+        flex-direction: row;
+
+      }
+
+      .mg {
+        height: 182px;
+        width: 158px;
+      }
+
+      .heading {
+        font-size: 25px !important;
+      }
+
+    }
+
+    p {
+      font-size: 1.15rem;
+    }
+
+    .navbar {
+      background: rgb(178 176 176 / 47%) !important;
+    }
+
+    .navbar-light .navbar-nav .nav-link.active,
+    .navbar-light .navbar-nav .show>.nav-link {
+      color: rgba(0, 0, 0, .9);
+      background: whitesmoke;
+      border-radius: 48px;
+      padding-left: 11px;
+      padding-right: 9px;
+      padding-top: 1px;
+      padding-bottom: 3px;
+      letter-spacing: 1px;
+      margin-top: 9px;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+      color: rgba(0, 0, 0, .9);
+      padding-left: 11px;
+      padding-right: 9px;
+      padding-top: 1px;
+      padding-bottom: 3px;
+      letter-spacing: 1px;
+      margin-top: 9px;
+      font-weight: bolder;
+
+    }
+
+    .navbar-light .navbar-nav .nav-link:hover,
+    .navbar-light .navbar-nav .nav-link:focus,
+    .navbar-light .navbar-nav .nav-link:visited,
+    .navbar-light .navbar-nav .nav-link:active {
+      color: rgba(0, 0, 0, 0.9);
+      background: whitesmoke;
+      border-radius: 48px;
+
+    }
+
+
+    .banner {
+      position: relative;
+      top: 0;
+      width: 100%;
+      height: 75vh;
+      background:url("/media/{{pi.images}}");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      opacity: 0.9;
+    }
+
+
+
+    .content-box {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar  navbar-expand-lg navbar-light bg-light fixed-top ">
+      <div class="container">
+        <a class="navbar-brand" href="#"><strong>BLOPSPOT</strong></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav m-lg-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'Blog' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#blog">Blog</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="#">category</a>
+            </li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'Logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'signup' %}">Signup</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">login</a>
+            </li>
+            {% endif %}
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+  </header>
+
+  <div class="jumbotron jumbotron-fluid banner" id="home">
+    <div class="container h-100">
+      <div class="content-box h-100">
+
+
+    
+
+      </div>
+
+
+    </div>
+  </div>
+  
+
+  <div class="container">
+      <h1 class=heading style="color: black;">{{pi.title}}</h1>
+      <span>Category: {{pi.category}}</span>
+      <br>
+      <span>Published: {{pi.date}}</span>
+      <hr>
+      <p>{{pi.description}}</p>
+  </div>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+    integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+    integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+    crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>
