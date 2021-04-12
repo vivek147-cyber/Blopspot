@@ -6,6 +6,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate,login as auth_login,logout
 from django.contrib.auth.decorators import login_required
 from .models import Post
+from .serializers import BlogSerializer
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -60,3 +62,8 @@ def blogdesc(request,id):
     print(pi)
 
     return render(request,'blogdesc.html',{'pi':pi[0]})
+
+def BlogListView(request):
+    post=Post.objects.all()
+    serializer=BlogSerializer(post,many=True)
+    return JsonResponse(serializer.data,safe=False)
