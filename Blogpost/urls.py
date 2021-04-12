@@ -21,10 +21,11 @@ from django.conf.urls.static import static
 
 from django.views.static import serve
 from django.conf.urls import url
-
+from blogs.views import BlogListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/Blog/',BlogListView),
     path('blogs/',include('blogs.urls')),
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}), 
